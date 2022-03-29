@@ -9,3 +9,11 @@
   You can see the priority table whenever you want.
 
  Not seeded, thus you can un-spoiler tag when you upload your answers
+
+## How to play
+
+  Download this repository, Or you could just download the [Version2 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version2).
+  
+  To run the game you only need these two files : *Necro-wordle.exe*, *Necro-wordle.pck*
+  
+  To actually see the code and debug, You should download latest version Godot Engine. (It's free)
