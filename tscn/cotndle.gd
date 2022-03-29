@@ -1,11 +1,11 @@
-extends Node2D
+extends Node2D 
 
 var rng = RandomNumberGenerator.new()
 var answer_index : int
 var answer : int
 var answer_monsterName : String
 var tries : int = 0
-export var input_buffer_time = 1.0
+export var input_buffer_time = 2.0
 
 onready var Guess1 = $Control/Guesses/Guess1
 onready var Guess2 = $Control/Guesses/Guess2
@@ -17,6 +17,8 @@ onready var Guess6 = $Control/Guesses/Guess6
 onready var cotn_LineEdit = $Control/LineEdit
 onready var blinker = $Control/Line2D
 onready var system_message = $Control/Label
+
+onready var help_ui = $Control/help_ui
 
 var guesses : Array = []
 
@@ -44,7 +46,7 @@ func pick_answer():
 	#print(" with monsterName : " + answer_monsterName)
 
 func _on_LineEdit_text_entered(new_guess):
-	if not valid_monster(new_guess):
+	if valid_monster(new_guess).size() == 0:
 		line_blink()
 		print(" Unvalid priority. ")
 		return
@@ -52,6 +54,9 @@ func _on_LineEdit_text_entered(new_guess):
 	cotn_LineEdit.editable = false
 	
 	cotn_LineEdit.text = ""
+	if(tries == 5): # erase help_ui
+		help_ui.visible = false
+	
 	guesses[tries].Guess(int(new_guess), answer)
 	tries = tries + 1
 	
@@ -65,14 +70,15 @@ func _on_LineEdit_text_entered(new_guess):
 	
 	yield(get_tree().create_timer(input_buffer_time), "timeout")
 	cotn_LineEdit.editable = true
+	guesses[tries-1].set_label( valid_monster(new_guess) )
 
-func valid_monster(priority) -> bool :
+func valid_monster(priority):
 	#var priority_int = int(priority)
 	
 	if PriorityData.only_priority_list.has(int(priority)): # valid
-		return true
+		return PriorityData.get_names_by_priority(priority)
 	
-	return false
+	return []
 
 func line_blink(duration = 0.5):
 	blinker.visible = true
@@ -96,4 +102,5 @@ func new_game():
 	system_message.text = "Can you guess today's monster Priority?"
 	pick_answer()
 	tries = 0
+	help_ui.visible = true
 	cotn_LineEdit.editable = true

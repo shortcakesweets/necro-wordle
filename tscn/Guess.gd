@@ -9,6 +9,8 @@ onready var NumberBox6 = $NumberBox6
 onready var NumberBox7 = $NumberBox7
 onready var NumberBox8 = $NumberBox8
 
+onready var MonsterName = $Label
+
 var NBoxes = []
 
 func _ready():
@@ -21,6 +23,8 @@ func _ready():
 	NBoxes.append(NumberBox6)
 	NBoxes.append(NumberBox7)
 	NBoxes.append(NumberBox8)
+	
+	set_label([])
 
 func Guess(guess : int, answer : int, duration = 1.0):
 	
@@ -57,3 +61,17 @@ func Guess(guess : int, answer : int, duration = 1.0):
 func reset():
 	for i in range(8):
 		NBoxes[i].animate_flip_with_input( -1, "White" )
+	set_label([])
+
+func set_label(names : Array):
+	if names.size() == 0:
+		MonsterName.text = ""
+		return
+	
+	var name_in_one : String = ""
+	for mob_name in names:
+		name_in_one = name_in_one + mob_name
+		if not (names[names.size() - 1] == mob_name):
+			name_in_one = name_in_one + "\n"
+	
+	MonsterName.text = name_in_one

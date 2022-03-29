@@ -163,3 +163,12 @@ func _ready():
 			only_priority_list.append(data[0])
 	
 	#print(only_priority_list)
+
+func get_names_by_priority(priority) -> Array:
+	var names : Array = []
+	
+	for data in priority_data:
+		if( data[0] == int(priority) ):
+			names.append( data[1] )
+	
+	return names

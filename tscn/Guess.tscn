@@ -28,3 +28,13 @@ position = Vector2( 544, 0 )
 
 [node name="NumberBox8" parent="." instance=ExtResource( 1 )]
 position = Vector2( 624, 0 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 704.0
+margin_top = -32.0
+margin_right = 832.0
+margin_bottom = 32.0
+text = "Monster1
+Monster2
+Monster3"
+valign = 1

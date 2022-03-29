@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tscn/cotndle.gd" type="Script" id=1]
 [ext_resource path="res://tscn/Guess.tscn" type="PackedScene" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://fonts/necrosans.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://tscn/Help.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tscn/Mystery.gd" type="Script" id=6]
+[ext_resource path="res://assets/misc_heart_container_cursed.png" type="Texture" id=7]
+[ext_resource path="res://assets/ring_gold.png" type="Texture" id=8]
+[ext_resource path="res://assets/red_dragon.png" type="Texture" id=9]
+[ext_resource path="res://assets/misc_heart_container.png" type="Texture" id=10]
+[ext_resource path="res://assets/heart_transplant.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -94,6 +99,33 @@ script = ExtResource( 6 )
 visible = false
 position = Vector2( 292, 56 )
 z_index = 10
+
+[node name="help_ui" type="Node2D" parent="Control"]
+
+[node name="RedDragon" type="Sprite" parent="Control/help_ui"]
+position = Vector2( 201, 560 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 9 )
+
+[node name="MiscHeartContainerCursed" type="Sprite" parent="Control/help_ui"]
+position = Vector2( 296, 560 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="MiscHeartContainer" type="Sprite" parent="Control/help_ui"]
+position = Vector2( 472, 560 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+
+[node name="HeartTransplant" type="Sprite" parent="Control/help_ui"]
+position = Vector2( 648, 560 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+
+[node name="RingGold" type="Sprite" parent="Control/help_ui"]
+position = Vector2( 744, 560 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
 
 [connection signal="text_entered" from="Control/LineEdit" to="." method="_on_LineEdit_text_entered"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
