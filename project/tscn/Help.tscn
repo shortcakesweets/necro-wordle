@@ -35,7 +35,7 @@ So a massive enemy with
 and 60 coins would be:
 29080760
 
-good luck! (version 3.2)"
+good luck! (version 3.3)"
 align = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
