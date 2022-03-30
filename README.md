@@ -17,3 +17,15 @@
   To run the game you only need these two files : *Necro-wordle.exe*, *Necro-wordle.pck*
   
   To actually see the code and debug, You should download latest version Godot Engine. (It's free)
+
+## Reminder
+
+  If you get the name wrong but the priority right, it's considered as a correct answer.
+  
+  > For example, "locked chest mimic" and "white chest mimic" has the same priority. If one of them is the answer, Either will also be the answer.
+
+  Some enemies do not follow the general rules of priority.
+  
+  > "red dragon" has priority of 99999999, "leprechaun" has priority of 80000000.
+
+  There are some *meme* names that you can type!
