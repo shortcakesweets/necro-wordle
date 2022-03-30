@@ -55,8 +55,9 @@ func _on_LineEdit_text_entered(new_guess_name):
 		return
 	
 	cotn_LineEdit.editable = false
-	
 	cotn_LineEdit.text = ""
+	cotn_LineEdit._ready()
+	
 	if(tries == 5): # erase help_ui
 		help_ui.visible = false
 	
