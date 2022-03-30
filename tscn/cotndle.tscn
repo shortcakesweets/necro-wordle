@@ -32,8 +32,8 @@ margin_top = 64.0
 margin_right = -329.0
 margin_bottom = -489.0
 align = 1
-max_length = 8
-placeholder_text = "Enter Monster priority (8 digit)"
+max_length = 20
+placeholder_text = "enter monster name"
 
 [node name="Line2D" type="Line2D" parent="Control"]
 visible = false

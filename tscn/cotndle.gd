@@ -45,10 +45,13 @@ func pick_answer():
 	#print(" picked answer : " + String(answer))
 	#print(" with monsterName : " + answer_monsterName)
 
-func _on_LineEdit_text_entered(new_guess):
+func _on_LineEdit_text_entered(new_guess_name):
+	
+	var new_guess = String( PriorityData.get_priority_by_name(new_guess_name) )
+	
 	if valid_monster(new_guess).size() == 0:
 		line_blink()
-		print(" Unvalid priority. ")
+		print(" Unvalid priority / monster name ")
 		return
 	
 	cotn_LineEdit.editable = false

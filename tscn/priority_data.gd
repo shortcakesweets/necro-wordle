@@ -87,14 +87,14 @@ var priority_data : Array = [
 [10302203, "red electric mage"],
 [10302203, "yellow skeleton"],
 [10302105, "yellow armadillo"],
-[10301404, "toad"],
+#[10301404, "toad"],
 [10301203, "harpy"],
 [10301202, "hellhound"],
 [10301120, "green bat"],
 [10301102, "clone"],
 [10301102, "ghoul(z4 skyblue spirit)"],
 [10301102, "purple slime"],
-[10301102, "black slime"],
+#[10301102, "black slime"],
 [10301101, "fire slime"],
 [10301101, "ice slime"],
 [10301100, "red electric orb"],
@@ -129,14 +129,14 @@ var priority_data : Array = [
 [10101202, "white skeleton"],
 [10101202, "electric mage"],
 [10101201, "goblin sentry"],
-[10101200, "crystal skull"],
+#[10101200, "crystal skull"],
 [10101200, "white skull"],
 [10101103, "evileye"],
 [10101102, "green orc"],
 [10101102, "orange slime"],
 [10101102, "wraith(z1 red spirit)"],
 [10101101, "electric zombie"],
-[10101100, "conductor sarcophagus"],
+#[10101100, "conductor sarcophagus"],
 [10101100, "purple electric orb"],
 [10006103, "white monkey"],
 [10004103, "green monkey"],
@@ -146,7 +146,6 @@ var priority_data : Array = [
 [10002103, "magic monkey"],
 [10002102, "shove monster"],
 [10001102, "green gorgon"],
-[10001102, "tar ball"],
 [10001102, "cursed wraith(z5 yellow spirit)"],
 [10001101, "waterball"]
 ]
@@ -172,3 +171,67 @@ func get_names_by_priority(priority) -> Array:
 			names.append( data[1] )
 	
 	return names
+
+func get_priority_by_name(name : String) -> int:
+	for data in priority_data:
+		if( name.nocasecmp_to(data[1]) == 0 ):
+			return data[0]
+	
+	# Edge case implement
+	if name.nocasecmp_to("Shopkeeper") == 0 or name.nocasecmp_to("Freddie") == 0:
+		return 99999997
+	
+	if name.nocasecmp_to("congaline zombies") == 0 or name.nocasecmp_to("conga zombies") == 0:
+		return 99100000
+	if name.nocasecmp_to("congaline zombie") == 0 or name.nocasecmp_to("conga zombie") == 0:
+		return 99100000
+	
+	if name.nocasecmp_to("necrodancer") == 0:
+		return 40309300
+	
+	if name.nocasecmp_to("Waski") == 0 or name.nocasecmp_to("Waski115") == 0:
+		return 30403110
+	
+	if name.nocasecmp_to("Green Waski") == 0 or name.nocasecmp_to("Waski's sister") == 0:
+		return 30604115
+	
+	if name.nocasecmp_to("turnip") == 0:
+		return 30201103
+	
+	if name.nocasecmp_to("klappa") == 0:
+		return 20301403
+	
+	if name.nocasecmp_to("tuf") == 0 or name.nocasecmp_to("tufwfo") == 0:
+		return 19901101
+	
+	if name.nocasecmp_to("didyouknow") == 0 or name.nocasecmp_to("did you know") == 0:
+		return 10602105
+	
+	if name.nocasecmp_to("ghoul") == 0:
+		return 10301102
+	
+	if name.nocasecmp_to("wight") == 0:
+		return 10201103
+	
+	if name.nocasecmp_to("ghast") == 0:
+		return 10201102
+	
+	if name.nocasecmp_to("cauldron mimic") == 0:
+		return 10201102
+	
+	if name.nocasecmp_to("black sarc") == 0:
+		return 10103915
+	
+	if name.nocasecmp_to("yellow sarc") == 0:
+		return 10102910
+	
+	if name.nocasecmp_to("white sarc") == 0:
+		return 10101805
+	
+	if name.nocasecmp_to("wraith") == 0:
+		return 10101102
+	
+	if name.nocasecmp_to("goof") == 0 or name.nocasecmp_to("purple monkey") == 0:
+		return 10002103
+	
+	return 0
