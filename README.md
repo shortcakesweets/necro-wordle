@@ -6,7 +6,9 @@
 
  This is based on the [priority table](https://docs.google.com/spreadsheets/d/13PsjYHSjpkEd93befvA1K19NNcMIQXafpii335XWuzM/edit#gid=1225283067).
  
-  You can see the priority table whenever you want.
+  ~~You can see the priority table whenever you want.~~
+  
+  Do not see the priority table, since you type monster names as your answer (From version 3 or later)!
 
  Not seeded, thus you can un-spoiler tag when you upload your answers
 
