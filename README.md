@@ -12,7 +12,7 @@
 
 ## How to play
 
-  Download this repository, Or you could just download the [Version2 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version2).
+  Download this repository, Or you could just download the [Version3 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version3).
   
   To run the game you only need these two files : *Necro-wordle.exe*, *Necro-wordle.pck*
   
