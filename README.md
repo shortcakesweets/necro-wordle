@@ -12,6 +12,10 @@
 
 ## How to play
 
+  The best way is to play it on [here](https://shortcakesweets.github.io/necro-wordle/). This page will update every time I commit.
+
+  If you want to use the code or debug then;
+
   Download this repository, Or you could just download the [Version3 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version3).
   
   To run the game you only need these two files : *Necro-wordle.exe*, *Necro-wordle.pck*
