@@ -4,7 +4,8 @@ var priority_data : Array = [
 [99999999, "red dragon"],
 [99999998, "goblin bomber"],
 [99999997, "blue dragon"],
-[99999997, "shopkeepers and pawnbroker"],
+[99999997, "shopkeeper"],
+[99999997, "pawnbroker"],
 [99999996, "blademaster"],
 [99999995, "apprentice blademaster"],
 [99100000, "conga line zombies"],
@@ -20,7 +21,7 @@ var priority_data : Array = [
 [41000000, "golden lute head"],
 [40606100, "dead ringer"],
 [40309300, "death metal"],
-[40309300, "necrodancer 1~2"],
+[40309300, "necrodancer"],
 [40302202, "black drum tentacle"],
 [40302202, "black horn tentacle"],
 [40302202, "black violin tentacle"],
@@ -77,7 +78,7 @@ var priority_data : Array = [
 [10401102, "pixie"],
 [10401102, "gargoyle"],
 [10401100, "golden electric orb"],
-[10305103, "doppleganger"],
+#[10305103, "doppleganger"],
 [10304103, "tar monster"],
 [10303202, "fire beetle"],
 [10303202, "ice beetle"],
@@ -151,17 +152,23 @@ var priority_data : Array = [
 ]
 
 var only_priority_list : Array = []
+var only_name_list : Array = []
 
 func _ready():
 	only_priority_list.clear()
 	
 	for data in priority_data:
+		
+		only_name_list.append(data[1])
+		
 		if only_priority_list.has(data[0]):
 			continue
 		else:
 			only_priority_list.append(data[0])
 	
-	#print(only_priority_list)
+	only_name_list.sort()
+	#print( only_priority_list )
+	#print( only_name_list )
 
 func get_names_by_priority(priority) -> Array:
 	var names : Array = []
@@ -178,17 +185,14 @@ func get_priority_by_name(name : String) -> int:
 			return data[0]
 	
 	# Edge case implement
-	if name.nocasecmp_to("Shopkeeper") == 0 or name.nocasecmp_to("Freddie") == 0:
+	if name.nocasecmp_to("Freddie") == 0:
 		return 99999997
 	
 	if name.nocasecmp_to("congaline zombies") == 0 or name.nocasecmp_to("conga zombies") == 0:
 		return 99100000
 	if name.nocasecmp_to("congaline zombie") == 0 or name.nocasecmp_to("conga zombie") == 0:
 		return 99100000
-	
-	if name.nocasecmp_to("necrodancer") == 0:
-		return 40309300
-	
+
 	if name.nocasecmp_to("Waski") == 0 or name.nocasecmp_to("Waski115") == 0:
 		return 30403110
 	
@@ -231,7 +235,25 @@ func get_priority_by_name(name : String) -> int:
 	if name.nocasecmp_to("wraith") == 0:
 		return 10101102
 	
+	if name.nocasecmp_to("cursed wraith") == 0:
+		return 10001102
+	
+	if name.nocasecmp_to("hotdog") == 0:
+		return 10301202
+	
+	if name.nocasecmp_to("greg") == 0 or name.nocasecmp_to("henry") == 0:
+		return 10301120
+	
 	if name.nocasecmp_to("goof") == 0 or name.nocasecmp_to("purple monkey") == 0:
 		return 10002103
 	
 	return 0
+
+func autocomplete(sub_name : String) -> Array:
+	var available_names : Array = []
+	
+	for data in priority_data:
+		if( sub_name.is_subsequence_ofi(data[1]) and not sub_name == data[1] ):
+			available_names.append(data[1])
+	
+	return available_names

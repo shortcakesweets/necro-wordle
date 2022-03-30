@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tscn/cotndle.gd" type="Script" id=1]
 [ext_resource path="res://tscn/Guess.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/red_dragon.png" type="Texture" id=9]
 [ext_resource path="res://assets/misc_heart_container.png" type="Texture" id=10]
 [ext_resource path="res://assets/heart_transplant.png" type="Texture" id=11]
+[ext_resource path="res://tscn/Dropdown_option.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -32,8 +33,33 @@ margin_top = 64.0
 margin_right = -329.0
 margin_bottom = -489.0
 align = 1
-max_length = 20
+max_length = 40
 placeholder_text = "enter monster name"
+script = ExtResource( 12 )
+
+[node name="dropdown" type="Label" parent="Control/LineEdit"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 4.817
+margin_top = -3.0
+margin_bottom = 2.60098
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "
+Available name 1
+
+Available name 2
+
+Available name 3
+
+Available name 4
+
+Available name 5"
+align = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/LineEdit"]
+z_index = -1
+color = Color( 0, 1, 0.717647, 1 )
+polygon = PoolVector2Array( 0, 48, 376, 48, 376, 224, 0, 224 )
 
 [node name="Line2D" type="Line2D" parent="Control"]
 visible = false
@@ -62,6 +88,7 @@ align = 1
 valign = 1
 
 [node name="Guesses" type="Node2D" parent="Control"]
+z_index = -2
 
 [node name="Guess1" parent="Control/Guesses" instance=ExtResource( 2 )]
 position = Vector2( 169, 160 )
@@ -127,6 +154,7 @@ position = Vector2( 744, 560 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 
+[connection signal="text_changed" from="Control/LineEdit" to="Control/LineEdit" method="_on_LineEdit_text_changed"]
 [connection signal="text_entered" from="Control/LineEdit" to="." method="_on_LineEdit_text_entered"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
 [connection signal="toggled" from="Control/Mystery" to="Control/Mystery" method="_on_Mystery_toggled"]
