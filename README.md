@@ -10,7 +10,9 @@
   
   Do not see the priority table, since you type monster names as your answer (From version 3 or later)!
 
- Not seeded, thus you can un-spoiler tag when you upload your answers
+ ~~Not seeded, thus you can un-spoiler tag when you upload your answers~~
+
+  Now this is seeded! You can play the Daily Necro-wordle!
 
 ## How to play
 
@@ -18,7 +20,7 @@
 
   If you want to use the code or debug then;
 
-  Download this repository, Or you could just download the [Version4 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version4).
+  Download this repository, Or you could just download the [Version4 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version4), or [Version5 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version5)
   
   To run the game you only need these two files : *Necro-wordle.exe*, *Necro-wordle.pck*
   
