@@ -18,7 +18,7 @@
 
   If you want to use the code or debug then;
 
-  Download this repository, Or you could just download the [Version3 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version3).
+  Download this repository, Or you could just download the [Version4 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version4).
   
   To run the game you only need these two files : *Necro-wordle.exe*, *Necro-wordle.pck*
   
