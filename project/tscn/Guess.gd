@@ -81,3 +81,8 @@ func get_color_sequence() -> Array:
 	for i in range(8):
 		 color_array.append(NBoxes[i].curr_color)
 	return color_array
+
+func hidden_mode():
+	for i in range(NBoxes.size()):
+		NBoxes[i].animate_flip_with_input(-1, NBoxes[i].curr_color)
+	set_label([])

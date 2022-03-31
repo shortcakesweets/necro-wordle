@@ -121,6 +121,7 @@ func game_over():
 	system_message.text = "Game over! Answer was " + answer_monsterName + "\n with priority " + String(answer)# + "\nPress Reset for a new game."
 	cotn_LineEdit.editable = false
 	clipboard_button.disabled = false
+	lost = true
 
 func game_win():
 	system_message.text = "You win! Answer was "+ answer_monsterName # + "\nPress reset for a new game"
@@ -171,34 +172,25 @@ func force_entry(today_input):
 const green_box : PoolByteArray = PoolByteArray([237, 160, 189, 237, 191, 169])
 const orange_box : PoolByteArray = PoolByteArray([237, 160, 189, 237, 191, 168])
 const grey_box : PoolByteArray = PoolByteArray([226, 172, 155])
+var lost : bool = false
 
-func _on_clipboard_pressed():
-	var clipboard : String = ""
-	
-	clipboard = "Necrodle "
-	clipboard = clipboard + String( PlayData.today_time["year"] ) + "-"
-	clipboard = clipboard + String( PlayData.today_time["month"] ) + "-"
-	clipboard = clipboard + String( PlayData.today_time["day"] )
-	
-	clipboard = clipboard + " " + String(tries) + "/6"
-	
-	for i in range(tries):
-		clipboard = clipboard + "\n"
+func _on_clipboard_toggled(button_pressed):
+	if button_pressed: # clipboard mode
+		system_message.text = ""
+		system_message.text += "Daily Necrodle "
+		system_message.text += String( PlayData.today_time["year"] ) + "-"
+		system_message.text += String( PlayData.today_time["month"] ) + "-"
+		system_message.text += String( PlayData.today_time["day"] )
 		
-		var color_sequence = guesses[i].get_color_sequence()
-		var cnt = 0
-		#print(color_sequence)
-		for color_string in color_sequence:
-			#clipboard = clipboard + color_string + " "
-			#cnt = cnt + 1
-			#if cnt == 2 or cnt == 4 or cnt == 6 or cnt == 7:
-			#	clipboard = clipboard + "   "
-			
-			if color_string == "Green":
-				clipboard = clipboard + green_box.get_string_from_utf8()
-			elif color_string == "Orange":
-				clipboard = clipboard + orange_box.get_string_from_utf8()
-			else:
-				clipboard = clipboard + grey_box.get_string_from_utf8()
+		system_message.text += "\n"
+		
+		if lost:
+			system_message.text += "X/6"
+		else:
+			system_message.text += String(tries) + "/6"
+		
+		for guess_row in guesses:
+			guess_row.hidden_mode()
 	
-	OS.set_clipboard(clipboard)
+	else : # original mode
+		_ready()
