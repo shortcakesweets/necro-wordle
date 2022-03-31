@@ -252,8 +252,8 @@ func get_priority_by_name(name : String) -> int:
 func autocomplete(sub_name : String) -> Array:
 	var available_names : Array = []
 	
-	for data in priority_data:
-		if( sub_name.is_subsequence_ofi(data[1]) and not sub_name == data[1] ):
-			available_names.append(data[1])
+	for data in only_name_list:
+		if( sub_name.is_subsequence_ofi(data) and not sub_name == data ):
+			available_names.append(data)
 	
 	return available_names

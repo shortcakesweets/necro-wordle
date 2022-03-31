@@ -39,7 +39,7 @@ func Guess(guess : int, answer : int, duration = 1.0):
 		number_count[ int(answer_str[i]) ] = number_count[ int(answer_str[i]) ] + 1
 	
 	# initially all Grey
-	for i in range(8):
+	for _i in range(8):
 		color_sequence.append("Grey")
 	
 	# Check for Greens

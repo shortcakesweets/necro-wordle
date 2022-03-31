@@ -42,8 +42,8 @@ func pick_answer():
 	
 	answer = int(PriorityData.priority_data[answer_index][0])
 	answer_monsterName = PriorityData.priority_data[answer_index][1]
-	#print(" picked answer : " + String(answer))
-	#print(" with monsterName : " + answer_monsterName)
+	print(" picked answer : " + String(answer))
+	print(" with monsterName : " + answer_monsterName)
 
 func _on_LineEdit_text_entered(new_guess_name):
 	
@@ -65,7 +65,9 @@ func _on_LineEdit_text_entered(new_guess_name):
 	tries = tries + 1
 	
 	if( int(new_guess) == int(answer) ): #win
+		yield(get_tree().create_timer(input_buffer_time), "timeout")
 		game_win()
+		guesses[tries-1].set_label( valid_monster(new_guess) )
 		return
 	
 	if(tries >= 6): # game over
