@@ -33,17 +33,31 @@ func _ready():
 	guesses.append(Guess5)
 	guesses.append(Guess6)
 	
-	new_game()
+	pick_answer()
+	var forcing_data = PlayData.get_data()
+	if not forcing_data:
+		new_game()
+		return
+	else:
+		if force_entry(forcing_data): # game is still going
+			return
+		else:
+			cotn_LineEdit.editable = false
 
 func pick_answer():
-	rng.randomize()
+	# The codes that are in comments are used for true RNG
+	
+	#rng.randomize()
 	var size = PriorityData.priority_data.size()
-	answer_index = rng.randi_range(0, size - 1)
+	#answer_index = rng.randi_range(0, size - 1)
+	
+	# We use daily seed (hashed) to generate today's answer
+	answer_index = PlayData._get_seed() % size
 	
 	answer = int(PriorityData.priority_data[answer_index][0])
 	answer_monsterName = PriorityData.priority_data[answer_index][1]
-	print(" picked answer : " + String(answer))
-	print(" with monsterName : " + answer_monsterName)
+	#print(" picked answer : " + String(answer))
+	#print(" with monsterName : " + answer_monsterName)
 
 func _on_LineEdit_text_entered(new_guess_name):
 	
@@ -53,6 +67,10 @@ func _on_LineEdit_text_entered(new_guess_name):
 		line_blink()
 		print(" Unvalid priority / monster name ")
 		return
+	
+	# Entered some valid monster. Save in local savefile
+	PlayData.today_inputs.append(new_guess_name)
+	PlayData.save_data()
 	
 	cotn_LineEdit.editable = false
 	cotn_LineEdit.text = ""
@@ -97,11 +115,11 @@ func _on_Button_pressed():
 		guesses[i].reset()
 
 func game_over():
-	system_message.text = "Game over! Answer was " + answer_monsterName + "\n with priority " + String(answer) + "\nPress Reset for a new game."
+	system_message.text = "Game over! Answer was " + answer_monsterName + "\n with priority " + String(answer)# + "\nPress Reset for a new game."
 	cotn_LineEdit.editable = false
 
 func game_win():
-	system_message.text = "You win! Answer was "+ answer_monsterName + "\nPress reset for a new game"
+	system_message.text = "You win! Answer was "+ answer_monsterName # + "\nPress reset for a new game"
 	cotn_LineEdit.editable = false
 
 func new_game():
@@ -110,3 +128,34 @@ func new_game():
 	tries = 0
 	help_ui.visible = true
 	cotn_LineEdit.editable = true
+
+# returns true when game is still going. false when game was win / lose
+func force_entry(today_input):
+	print(" force entry occured with data :")
+	print(today_input)
+	
+	if today_input.size() == 0:
+		return
+	
+	cotn_LineEdit.editable = false
+	
+	for force_guess in today_input:
+		var force_guess_int = String( PriorityData.get_priority_by_name(force_guess) )
+		guesses[tries].Guess(int(force_guess_int), answer)
+		guesses[tries].set_label( valid_monster(force_guess_int) )
+		tries = tries + 1
+		
+		if tries == 6 :
+			help_ui.visible = false
+		
+		if( int(force_guess_int) == int(answer) ): #win
+			game_win()
+			guesses[tries-1].set_label( valid_monster(force_guess_int) )
+			return false
+	
+		if(tries >= 6): # game over
+			game_over()
+			return false
+	
+	cotn_LineEdit.editable = true
+	return true

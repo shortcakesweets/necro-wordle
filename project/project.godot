@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PriorityData="*res://tscn/priority_data.gd"
+PlayData="*res://tscn/play_data.gd"
 
 [display]
 

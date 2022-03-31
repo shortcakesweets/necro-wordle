@@ -68,12 +68,14 @@ width = 5.0
 default_color = Color( 1, 0, 0, 1 )
 
 [node name="Button" type="Button" parent="Control"]
+visible = false
 anchor_right = 1.172
 anchor_bottom = 1.0
 margin_left = 1024.0
 margin_top = 32.0
 margin_right = -53.1281
 margin_bottom = -532.0
+disabled = true
 text = "reset"
 
 [node name="Label" type="Label" parent="Control"]
