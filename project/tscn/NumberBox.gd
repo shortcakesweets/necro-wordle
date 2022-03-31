@@ -3,6 +3,7 @@ extends Node2D
 onready var Box = $Polygon2D
 onready var Number = $Label
 onready var tween = $Tween
+var curr_color : String
 
 var palette : Dictionary = {
 	"Green" : Color(0,255,0,255),
@@ -24,6 +25,7 @@ func set_number(target_number : int):
 
 func set_color(target_color : String):
 	Box.color = palette[target_color]
+	curr_color = target_color
 
 func animate_flip_with_input( target_number : int, target_color : String, tween_duration = 1.0 ):
 	tween.stop_all()

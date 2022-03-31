@@ -18,12 +18,15 @@ onready var cotn_LineEdit = $Control/LineEdit
 onready var blinker = $Control/Line2D
 onready var system_message = $Control/Label
 
+onready var clipboard_button = $Control/clipboard
+
 onready var help_ui = $Control/help_ui
 
 var guesses : Array = []
 
 func _ready():
 	tries = 0
+	clipboard_button.disabled = true
 	
 	guesses.clear()
 	guesses.append(Guess1)
@@ -117,10 +120,12 @@ func _on_Button_pressed():
 func game_over():
 	system_message.text = "Game over! Answer was " + answer_monsterName + "\n with priority " + String(answer)# + "\nPress Reset for a new game."
 	cotn_LineEdit.editable = false
+	clipboard_button.disabled = false
 
 func game_win():
 	system_message.text = "You win! Answer was "+ answer_monsterName # + "\nPress reset for a new game"
 	cotn_LineEdit.editable = false
+	clipboard_button.disabled = false
 
 func new_game():
 	system_message.text = "Can you guess today's monster Priority?"
@@ -149,13 +154,51 @@ func force_entry(today_input):
 			help_ui.visible = false
 		
 		if( int(force_guess_int) == int(answer) ): #win
+			yield(get_tree().create_timer(input_buffer_time), "timeout")
 			game_win()
 			guesses[tries-1].set_label( valid_monster(force_guess_int) )
 			return false
 	
 		if(tries >= 6): # game over
+			yield(get_tree().create_timer(input_buffer_time), "timeout")
 			game_over()
 			return false
 	
 	cotn_LineEdit.editable = true
 	return true
+
+# clipboards
+const green_box : PoolByteArray = PoolByteArray([237, 160, 189, 237, 191, 169])
+const orange_box : PoolByteArray = PoolByteArray([237, 160, 189, 237, 191, 168])
+const grey_box : PoolByteArray = PoolByteArray([226, 172, 155])
+
+func _on_clipboard_pressed():
+	var clipboard : String = ""
+	
+	clipboard = "Necrodle "
+	clipboard = clipboard + String( PlayData.today_time["year"] ) + "-"
+	clipboard = clipboard + String( PlayData.today_time["month"] ) + "-"
+	clipboard = clipboard + String( PlayData.today_time["day"] )
+	
+	clipboard = clipboard + " " + String(tries) + "/6"
+	
+	for i in range(tries):
+		clipboard = clipboard + "\n"
+		
+		var color_sequence = guesses[i].get_color_sequence()
+		var cnt = 0
+		#print(color_sequence)
+		for color_string in color_sequence:
+			#clipboard = clipboard + color_string + " "
+			#cnt = cnt + 1
+			#if cnt == 2 or cnt == 4 or cnt == 6 or cnt == 7:
+			#	clipboard = clipboard + "   "
+			
+			if color_string == "Green":
+				clipboard = clipboard + green_box.get_string_from_utf8()
+			elif color_string == "Orange":
+				clipboard = clipboard + orange_box.get_string_from_utf8()
+			else:
+				clipboard = clipboard + grey_box.get_string_from_utf8()
+	
+	OS.set_clipboard(clipboard)

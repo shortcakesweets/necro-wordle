@@ -75,3 +75,9 @@ func set_label(names : Array):
 			name_in_one = name_in_one + "\n"
 	
 	MonsterName.text = name_in_one
+
+func get_color_sequence() -> Array:
+	var color_array = []
+	for i in range(8):
+		 color_array.append(NBoxes[i].curr_color)
+	return color_array

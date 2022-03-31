@@ -78,6 +78,15 @@ margin_bottom = -532.0
 disabled = true
 text = "reset"
 
+[node name="clipboard" type="Button" parent="Control"]
+anchor_right = 1.172
+anchor_bottom = 1.0
+margin_left = 920.0
+margin_top = 80.0
+margin_right = -104.128
+margin_bottom = -488.0
+text = "copy to clipboard"
+
 [node name="Label" type="Label" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -159,4 +168,5 @@ texture = ExtResource( 8 )
 [connection signal="text_changed" from="Control/LineEdit" to="Control/LineEdit" method="_on_LineEdit_text_changed"]
 [connection signal="text_entered" from="Control/LineEdit" to="." method="_on_LineEdit_text_entered"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/clipboard" to="." method="_on_clipboard_pressed"]
 [connection signal="toggled" from="Control/Mystery" to="Control/Mystery" method="_on_Mystery_toggled"]
