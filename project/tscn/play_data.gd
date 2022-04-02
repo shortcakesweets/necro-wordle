@@ -7,15 +7,13 @@ var today_inputs = []
 var today_hashed_seed = 0
 
 func _ready():
-	# _get_seed()
 	pass
 
 func _get_seed():
 	today_time = OS.get_datetime()
 	var today_seed_string = String( today_time["year"] ) + String( today_time["month"] ) + String( today_time["day"] )
 	
-	today_hashed_seed = hash(today_seed_string)
-	return hash(today_hashed_seed)
+	return hash( today_seed_string.sha256_text() )
 
 func save_data():
 	#print(" save_data occured ")
