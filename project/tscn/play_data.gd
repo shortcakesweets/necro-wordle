@@ -7,7 +7,7 @@ var today_inputs = []
 var today_hashed_seed = 0
 
 func _ready():
-	pass
+	_get_seed()
 
 func _get_seed():
 	today_time = OS.get_datetime()
@@ -23,17 +23,17 @@ func save_data():
 	save_data["today_hashed_seed"] = today_hashed_seed
 	save_data["today_inputs"] = today_inputs
 	
-	save_file.open("user://necrodle_save_data.save", File.WRITE)
+	save_file.open("user://necrodle_save_datav2.save", File.WRITE)
 	save_file.store_line(to_json( save_data ))
 	
 	#print(save_data)
 
 func get_data():
 	var save_file = File.new()
-	if not save_file.file_exists("user://necrodle_save_data.save"):
+	if not save_file.file_exists("user://necrodle_save_datav2.save"):
 		return false # No such savefile exists. First try
 	
-	save_file.open("user://necrodle_save_data.save", File.READ)
+	save_file.open("user://necrodle_save_datav2.save", File.READ)
 	var stored_data = parse_json( save_file.get_line() )
 	if stored_data["today_hashed_seed"] == today_hashed_seed:
 		today_inputs = stored_data["today_inputs"].duplicate(true)
