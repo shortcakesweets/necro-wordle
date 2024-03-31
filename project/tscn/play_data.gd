@@ -30,6 +30,12 @@ func save_data():
 
 func get_data():
 	var save_file = File.new()
+	
+	#####################
+	# Every time the seed resets
+	return false
+	
+	
 	if not save_file.file_exists("user://necrodle_save_datav2.save"):
 		return false # No such savefile exists. First try
 	
