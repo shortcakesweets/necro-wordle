@@ -1,32 +1,24 @@
 # necro-wordle
  Necrodancer worlde!
+
+ Necrodancer worlde is now up-to-date with Synchrony! It features new mobs, changed priorities like orbs and so.
  
  
 ## About the Game
 
- This is based on the [priority table](https://docs.google.com/spreadsheets/d/13PsjYHSjpkEd93befvA1K19NNcMIQXafpii335XWuzM/edit#gid=1225283067).
- 
-  ~~You can see the priority table whenever you want.~~
-  
-  Do not see the priority table, since you type monster names as your answer (From version 3 or later)!
+ This is based on the [priority table](https://docs.google.com/spreadsheets/d/1lwKz6aMf_KUv4dDatrBPGFmh_jYyft1SwxjTr7ze0YI/edit?usp=sharing).
 
- ~~Not seeded, thus you can un-spoiler tag when you upload your answers~~
-
-  Now this is seeded! You can play the Daily Necro-wordle!
+ Features Daily Challange (seeded, saved by each submit) and Practice Mode.
 
 ## How to play
 
-  The best way is to play it on [here](https://shortcakesweets.github.io/necro-wordle/). This page will update every time I commit.
+  The best way is to play it on [here](https://shortcakesweets.github.io/necro-wordle/).
 
-  If you want to use the code or debug then;
-
-  Download this repository, Or you could just download the [Version4 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version4), or [Version5 Folder](https://github.com/shortcakesweets/necro-wordle/tree/main/Version5)
-  
-  To run the game you only need these two files : *Necro-wordle.exe*, *Necro-wordle.pck*
-  
-  To actually see the code and debug, You should download latest version Godot Engine. (It's free)
+  If you want to use the code or debug then download this repository, and open the project with Godot Engine.
 
 ## Reminder
+
+  Mobs that has priority same or larger than 8 digits are excluded from game. You can see whether the enemy appears on autocomplete to see it's included or not.
 
   If you get the name wrong but the priority right, it's considered as a correct answer.
   
@@ -35,5 +27,3 @@
   Some enemies do not follow the general rules of priority.
   
   > "red dragon" has priority of 99999999, "leprechaun" has priority of 80000000.
-
-  There are some *meme* names that you can type!
