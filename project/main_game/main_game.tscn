@@ -1,0 +1,124 @@
+[gd_scene load_steps=14 format=3 uid="uid://bh1tw4gx2ipip"]
+
+[ext_resource type="Script" path="res://main_game/main_game.gd" id="1_xq580"]
+[ext_resource type="PackedScene" uid="uid://lxkele8f58gr" path="res://main_game/components/line.tscn" id="1_xqnmk"]
+[ext_resource type="Texture2D" uid="uid://dpy7wlosc73i4" path="res://assets/bg/zone1.jpg" id="2_xliqn"]
+[ext_resource type="Script" path="res://main_game/BG.gd" id="3_28xt7"]
+[ext_resource type="PackedScene" uid="uid://dyng7dl1s0dcy" path="res://main_game/components/submit.tscn" id="3_gkg7c"]
+[ext_resource type="Script" path="res://main_game/BoxHints.gd" id="5_2naku"]
+[ext_resource type="PackedScene" uid="uid://dona1ikgp3j8m" path="res://main_game/components/enemy_displayer.tscn" id="5_jvyfq"]
+[ext_resource type="PackedScene" uid="uid://co1pebg5qplyw" path="res://main_game/components/end_popup.tscn" id="8_mhswp"]
+[ext_resource type="Texture2D" uid="uid://b43sogkp4kct2" path="res://assets/ui/blue_boxCross.png" id="9_w55pi"]
+[ext_resource type="Texture2D" uid="uid://xvef04th0pw1" path="res://assets/ui/green_boxCross.png" id="10_eyeoc"]
+[ext_resource type="Texture2D" uid="uid://bda0t47mjlyux" path="res://assets/ui/blue_boxTick.png" id="11_in6qg"]
+[ext_resource type="Theme" uid="uid://cqc18d25q7vg3" path="res://main_game/game_theme.tres" id="11_yrbxn"]
+[ext_resource type="Texture2D" uid="uid://mtvddn0ynw8b" path="res://assets/ui/green_boxTick.png" id="12_tnbd4"]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_xq580")
+practice_mode = true
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(752, 320)
+texture = ExtResource("2_xliqn")
+script = ExtResource("3_28xt7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 48.0
+offset_top = -8.0
+offset_right = 1264.0
+offset_bottom = 808.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Lines" type="Node2D" parent="."]
+position = Vector2(0, 40)
+
+[node name="Line0" parent="Lines" instance=ExtResource("1_xqnmk")]
+position = Vector2(96, 64)
+
+[node name="Line2" parent="Lines" instance=ExtResource("1_xqnmk")]
+position = Vector2(96, 160)
+
+[node name="Line3" parent="Lines" instance=ExtResource("1_xqnmk")]
+position = Vector2(96, 256)
+
+[node name="Line4" parent="Lines" instance=ExtResource("1_xqnmk")]
+position = Vector2(96, 352)
+
+[node name="Line5" parent="Lines" instance=ExtResource("1_xqnmk")]
+position = Vector2(96, 448)
+
+[node name="Line6" parent="Lines" instance=ExtResource("1_xqnmk")]
+position = Vector2(96, 544)
+
+[node name="BoxHints" type="Node2D" parent="."]
+position = Vector2(96, 680)
+script = ExtResource("5_2naku")
+
+[node name="EnemyDisplayer0" parent="BoxHints" instance=ExtResource("5_jvyfq")]
+position = Vector2(48, 48)
+guessed = true
+sprite_scale = 1.7
+
+[node name="EnemyDisplayer1" parent="BoxHints" instance=ExtResource("5_jvyfq")]
+position = Vector2(208, 48)
+guessed = true
+
+[node name="EnemyDisplayer2" parent="BoxHints" instance=ExtResource("5_jvyfq")]
+position = Vector2(416, 48)
+guessed = true
+
+[node name="EnemyDisplayer3" parent="BoxHints" instance=ExtResource("5_jvyfq")]
+position = Vector2(576, 48)
+guessed = true
+sprite_scale = 2.5
+
+[node name="EnemyDisplayer4" parent="BoxHints" instance=ExtResource("5_jvyfq")]
+position = Vector2(736, 48)
+guessed = true
+sprite_scale = 2.5
+
+[node name="Submit" parent="." instance=ExtResource("3_gkg7c")]
+offset_left = 168.0
+offset_top = 16.0
+offset_right = 168.0
+offset_bottom = 16.0
+
+[node name="EndPopup" parent="." instance=ExtResource("8_mhswp")]
+z_index = 10
+
+[node name="Return" type="TextureButton" parent="."]
+offset_left = 1176.0
+offset_top = 16.0
+offset_right = 1240.0
+offset_bottom = 80.0
+texture_normal = ExtResource("9_w55pi")
+texture_pressed = ExtResource("10_eyeoc")
+stretch_mode = 5
+
+[node name="ScreenShot" type="TextureButton" parent="."]
+offset_left = 1176.0
+offset_top = 96.0
+offset_right = 1240.0
+offset_bottom = 160.0
+toggle_mode = true
+texture_normal = ExtResource("11_in6qg")
+texture_pressed = ExtResource("12_tnbd4")
+stretch_mode = 5
+
+[node name="Gamemode" type="Label" parent="."]
+offset_left = 872.0
+offset_top = 16.0
+offset_right = 1148.0
+offset_bottom = 80.0
+theme = ExtResource("11_yrbxn")
+text = "Gamemode
+Daily Challange"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="submit_guess" from="Submit" to="." method="submit_guess"]
+[connection signal="replay_game" from="EndPopup" to="." method="replay_game"]
+[connection signal="return_to_lobby" from="EndPopup" to="." method="return_to_lobby"]
+[connection signal="pressed" from="Return" to="." method="return_to_lobby"]
+[connection signal="toggled" from="ScreenShot" to="." method="screenshot_mode"]

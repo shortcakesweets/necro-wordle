@@ -6,24 +6,28 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
 [application]
 
-config/name="Necro-wordle"
-run/main_scene="res://tscn/cotndle.tscn"
-config/icon="res://icon.png"
+config/name="Necro-wordle-synchrony"
+run/main_scene="res://lobby.tscn"
+config/features=PackedStringArray("4.2")
 
 [autoload]
 
-PriorityData="*res://tscn/priority_data.gd"
-PlayData="*res://tscn/play_data.gd"
+EnemyList="*res://EnemyList.gd"
+SceneTransition="*res://SceneTransition.tscn"
 
 [display]
 
-window/size/width=1200
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/size/viewport_width=1300
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
 
 [physics]
 
@@ -31,5 +35,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
 quality/driver/driver_name="GLES2"
-environment/default_environment="res://default_env.tres"
+vram_compression/import_etc=true

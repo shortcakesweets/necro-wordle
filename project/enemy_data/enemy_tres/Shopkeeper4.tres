@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://bdtj1bujqawkd"]
+
+[ext_resource type="Script" path="res://enemy_data/enemy_resource.gd" id="1_07j4m"]
+
+[resource]
+script = ExtResource("1_07j4m")
+friendlyName = "Food Shopkeeper"
+name = "Shopkeeper4"
+priority = "099999997"
+exclude_from_game = false
+synchrony = false
+multiplayer_only = false

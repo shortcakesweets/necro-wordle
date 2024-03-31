@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://lxkele8f58gr"]
+
+[ext_resource type="Script" path="res://main_game/components/line.gd" id="1_gssmc"]
+[ext_resource type="PackedScene" uid="uid://dona1ikgp3j8m" path="res://main_game/components/enemy_displayer.tscn" id="2_3ocmu"]
+[ext_resource type="PackedScene" uid="uid://cmv0gw17jbwu3" path="res://main_game/components/cell.tscn" id="2_i8i0u"]
+
+[node name="Line" type="Node2D"]
+script = ExtResource("1_gssmc")
+metadata/_edit_lock_ = true
+
+[node name="EnemyDisplayer" parent="." instance=ExtResource("2_3ocmu")]
+position = Vector2(896, 48)
+
+[node name="Cell0" parent="." instance=ExtResource("2_i8i0u")]
+position = Vector2(48, 8)
+
+[node name="Cell1" parent="." instance=ExtResource("2_i8i0u")]
+position = Vector2(160, 8)
+
+[node name="Cell2" parent="." instance=ExtResource("2_i8i0u")]
+position = Vector2(256, 8)
+
+[node name="Cell3" parent="." instance=ExtResource("2_i8i0u")]
+position = Vector2(368, 8)
+
+[node name="Cell4" parent="." instance=ExtResource("2_i8i0u")]
+position = Vector2(464, 8)
+
+[node name="Cell5" parent="." instance=ExtResource("2_i8i0u")]
+position = Vector2(576, 8)
+
+[node name="Cell6" parent="." instance=ExtResource("2_i8i0u")]
+position = Vector2(688, 8)
+
+[node name="Cell7" parent="." instance=ExtResource("2_i8i0u")]
+position = Vector2(784, 8)

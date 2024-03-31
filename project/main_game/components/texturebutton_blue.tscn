@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://df3r5h3ahf2a2"]
+
+[ext_resource type="Texture2D" uid="uid://cket55uy5khjj" path="res://assets/ui/blue_button04.png" id="1_hksh3"]
+[ext_resource type="Texture2D" uid="uid://by1ctw6hdw0ht" path="res://assets/ui/blue_button05.png" id="2_6psrv"]
+[ext_resource type="Texture2D" uid="uid://cvs8i4uspup32" path="res://assets/ui/blue_button02.png" id="3_jgll3"]
+
+[node name="TextureButton" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.213
+anchor_bottom = 0.091
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_hksh3")
+texture_pressed = ExtResource("2_6psrv")
+texture_hover = ExtResource("3_jgll3")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 64.0
+text = "sample text"
+horizontal_alignment = 1
+vertical_alignment = 1

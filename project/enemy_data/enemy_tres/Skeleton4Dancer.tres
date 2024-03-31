@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://c55o1h4sih6u6"]
+
+[ext_resource type="Script" path="res://enemy_data/enemy_resource.gd" id="1_57c5r"]
+
+[resource]
+script = ExtResource("1_57c5r")
+friendlyName = "Crystal Skeleton"
+name = "Skeleton4Dancer"
+priority = "010201204"
+exclude_from_game = true
+synchrony = false
+multiplayer_only = false

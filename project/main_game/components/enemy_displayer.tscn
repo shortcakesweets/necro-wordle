@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://dona1ikgp3j8m"]
+
+[ext_resource type="Script" path="res://main_game/components/enemy_displayer.gd" id="1_prtsm"]
+[ext_resource type="SpriteFrames" uid="uid://lcv5xpfc3p8e" path="res://assets/enemy_animations.tres" id="2_s6bu5"]
+[ext_resource type="Theme" uid="uid://uraowehecfqy" path="res://fonts/font_cell.tres" id="3_sux8y"]
+
+[sub_resource type="Animation" id="Animation_ukoms"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e1cx6"]
+resource_name = "appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m6cal"]
+_data = {
+"RESET": SubResource("Animation_ukoms"),
+"appear": SubResource("Animation_e1cx6")
+}
+
+[node name="EnemyDisplayer" type="Node2D"]
+script = ExtResource("1_prtsm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_s6bu5")
+animation = &"None"
+autoplay = "None"
+frame_progress = 0.82419
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = -144.0
+offset_top = -88.0
+offset_right = 142.0
+offset_bottom = -32.0
+theme = ExtResource("3_sux8y")
+text = "same priority as : 
+enemy names"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.156863, 0.156863, 0.156863, 1)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_m6cal")
+}
+
+[node name="MouseDetect" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[connection signal="mouse_entered" from="MouseDetect" to="." method="_on_mouse_detect_mouse_entered"]
+[connection signal="mouse_exited" from="MouseDetect" to="." method="_on_mouse_detect_mouse_exited"]

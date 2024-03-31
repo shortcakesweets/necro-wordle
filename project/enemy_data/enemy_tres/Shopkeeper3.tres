@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://d4lrgxqwudd5w"]
+
+[ext_resource type="Script" path="res://enemy_data/enemy_resource.gd" id="1_gikba"]
+
+[resource]
+script = ExtResource("1_gikba")
+friendlyName = "Glass Shopkeeper"
+name = "Shopkeeper3"
+priority = "099999997"
+exclude_from_game = false
+synchrony = false
+multiplayer_only = false

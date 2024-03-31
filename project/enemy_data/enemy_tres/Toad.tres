@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://bdl2guu4sakle"]
+
+[ext_resource type="Script" path="res://enemy_data/enemy_resource.gd" id="1_75cdh"]
+
+[resource]
+script = ExtResource("1_75cdh")
+friendlyName = "Toad"
+name = "Toad"
+priority = "010301404"
+exclude_from_game = true
+synchrony = false
+multiplayer_only = false

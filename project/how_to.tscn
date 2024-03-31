@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbrhggoq1r2v5"]
+
+[ext_resource type="Script" path="res://how_to.gd" id="1_2mi5n"]
+[ext_resource type="Theme" uid="uid://cqc18d25q7vg3" path="res://main_game/game_theme.tres" id="1_cuk21"]
+[ext_resource type="Texture2D" uid="uid://mv86p3d53j1v" path="res://assets/bg/howto.jpg" id="1_ptgcv"]
+[ext_resource type="Texture2D" uid="uid://b43sogkp4kct2" path="res://assets/ui/blue_boxCross.png" id="4_0h7pl"]
+[ext_resource type="Texture2D" uid="uid://xvef04th0pw1" path="res://assets/ui/green_boxCross.png" id="5_ooca1"]
+
+[node name="HowTo" type="Node2D"]
+script = ExtResource("1_2mi5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(608, 392)
+texture = ExtResource("1_ptgcv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1200.0
+offset_bottom = 800.0
+theme = ExtResource("1_cuk21")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -16.0
+offset_right = 1160.0
+offset_bottom = 816.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Label" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = 1152.0
+offset_bottom = 784.0
+theme_override_constants/line_separation = 16
+bbcode_enabled = true
+text = "[center]
+Necrowordle v1.0
+
+Your job is to guess today's [color=green]priority[/color]!
+
+
+Each enemy in cotn has their own priority
+most of the enemies follow these [color=green]rule[/color]:
+
+* 1st digit is the [color=green]type[/color] of enemy
+* 2, 3rd digits are enemy's [color=green]damage[/color]
+* 4, 5th digits are enemy's [color=green]health[/color]
+* 6th digit is enemy's [color=green]speed[/color]
+* 7, 8th digit is enemy's [color=green]base gold[/color]
+
+but beware, [color=orange]some enemies do not follow this rules![/color]
+
+[wave]other game rules[/wave]
+* enemies with 9 or more digit priority are banned
+ (mannequin, exploding mushroom are banned)
+* different enemy with same priority are considered same"
+metadata/_edit_lock_ = true
+
+[node name="Return" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1096.0
+offset_top = 24.0
+offset_right = 1176.0
+offset_bottom = 104.0
+texture_normal = ExtResource("4_0h7pl")
+texture_pressed = ExtResource("5_ooca1")
+stretch_mode = 5
+
+[connection signal="pressed" from="Control/Return" to="." method="_on_return_pressed"]

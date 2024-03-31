@@ -1,0 +1,14 @@
+TextureButton
+Label
+AnimationPlayer
+RichTextLabel
+ColorRect
+Control
+Button
+Sprite2D
+Node2D
+TileMap
+CanvasLayer
+Window
+VBoxContainer
+OptionButton

@@ -1,0 +1,138 @@
+[gd_scene load_steps=15 format=3 uid="uid://ccnbba0mej07o"]
+
+[ext_resource type="Script" path="res://lobby.gd" id="1_krdmx"]
+[ext_resource type="Theme" uid="uid://cqc18d25q7vg3" path="res://main_game/game_theme.tres" id="2_1drpe"]
+[ext_resource type="Texture2D" uid="uid://by1ctw6hdw0ht" path="res://assets/ui/blue_button05.png" id="4_c4mx2"]
+[ext_resource type="Texture2D" uid="uid://cvs8i4uspup32" path="res://assets/ui/blue_button02.png" id="5_cjfx0"]
+[ext_resource type="Texture2D" uid="uid://3en80ybg5m0s" path="res://assets/ui/green_button04.png" id="6_emni6"]
+[ext_resource type="Texture2D" uid="uid://djy8gymy23nfe" path="res://assets/ui/green_button05.png" id="7_3b7kc"]
+[ext_resource type="Texture2D" uid="uid://cket55uy5khjj" path="res://assets/ui/blue_button04.png" id="7_iep3d"]
+[ext_resource type="Texture2D" uid="uid://bkbfpfb1u5kno" path="res://assets/ui/green_button02.png" id="8_ybve6"]
+[ext_resource type="Texture2D" uid="uid://c28uoettv7oqw" path="res://assets/ui/grey_button03.png" id="9_55nbx"]
+[ext_resource type="Texture2D" uid="uid://6fef8vw4mm8r" path="res://assets/ui/grey_button04.png" id="10_lkigu"]
+[ext_resource type="Texture2D" uid="uid://cbx0cc0vesap8" path="res://assets/ui/grey_button01.png" id="11_oe1qy"]
+[ext_resource type="Texture2D" uid="uid://c1dqgxeabm8kt" path="res://assets/bg/zone4_floor.png" id="12_abjn6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0du3c"]
+texture = ExtResource("12_abjn6")
+texture_region_size = Vector2i(26, 26)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ij6jw"]
+tile_size = Vector2i(26, 26)
+sources/0 = SubResource("TileSetAtlasSource_0du3c")
+
+[node name="Lobby" type="Node2D"]
+script = ExtResource("1_krdmx")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_ij6jw")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65537, 0, 0, 131074, 0, 0, 196611, 0, 0, 262148, 0, 0, 327685, 0, 0, 393222, 0, 0, 458759, 0, 0, 524296, 0, 0, 1, 131072, 0, 65536, 131072, 0, 131073, 131072, 0, 65538, 131072, 0, 196610, 131072, 0, 131075, 131072, 0, 196608, 131072, 0, 262145, 131072, 0, 327682, 131072, 0, 393219, 131072, 0, 458756, 131072, 0, 524293, 131072, 0, 393217, 131072, 0, 327680, 131072, 0, 458752, 131072, 0, 524289, 131072, 0, 458754, 131072, 0, 524291, 131072, 0, 458758, 131072, 0, 393221, 131072, 0, 327684, 131072, 0, 262147, 131072, 0, 196612, 131072, 0, 3, 131072, 0, 65540, 131072, 0, 131077, 131072, 0, 196614, 131072, 0, 262151, 131072, 0, 327688, 131072, 0, 393225, 131072, 0, 458762, 131072, 0, 524299, 131072, 0, 458760, 131072, 0, 393223, 131072, 0, 327686, 131072, 0, 262149, 131072, 0, 5, 131072, 0, 65542, 131072, 0, 131079, 131072, 0, 196616, 131072, 0, 262153, 131072, 0, 327690, 131072, 0, 393227, 131072, 0, 458764, 131072, 0, 524301, 131072, 0, 7, 131072, 0, 65544, 131072, 0, 131081, 131072, 0, 196618, 131072, 0, 262155, 131072, 0, 327692, 131072, 0, 393229, 131072, 0, 458766, 131072, 0, 9, 131072, 0, 65546, 131072, 0, 131083, 131072, 0, 196620, 131072, 0, 262157, 131072, 0, 327694, 131072, 0, 11, 131072, 0, 65548, 131072, 0, 131085, 131072, 0, 196622, 131072, 0, 13, 131072, 0, 65550, 131072, 0, 131072, 0, 0, 196609, 0, 0, 262146, 0, 0, 327683, 0, 0, 393220, 0, 0, 458757, 0, 0, 524294, 0, 0, 262144, 0, 0, 327681, 0, 0, 393218, 0, 0, 458755, 0, 0, 524292, 0, 0, 393216, 0, 0, 458753, 0, 0, 524290, 0, 0, 524288, 0, 0, 2, 0, 0, 65539, 0, 0, 131076, 0, 0, 196613, 0, 0, 262150, 0, 0, 327687, 0, 0, 393224, 0, 0, 458761, 0, 0, 524298, 0, 0, 4, 0, 0, 65541, 0, 0, 131078, 0, 0, 196615, 0, 0, 262152, 0, 0, 327689, 0, 0, 393226, 0, 0, 458763, 0, 0, 524300, 0, 0, 6, 0, 0, 65543, 0, 0, 131080, 0, 0, 196617, 0, 0, 262154, 0, 0, 327691, 0, 0, 393228, 0, 0, 458765, 0, 0, 524302, 0, 0, 8, 0, 0, 65545, 0, 0, 131082, 0, 0, 196619, 0, 0, 262156, 0, 0, 327693, 0, 0, 393230, 0, 0, 10, 0, 0, 65547, 0, 0, 131084, 0, 0, 196621, 0, 0, 262158, 0, 0, 12, 0, 0, 65549, 0, 0, 131086, 0, 0, 14, 0, 0, 524295, 131072, 0, 524297, 131072, 0, 589825, 0, 0, 589827, 0, 0, 589829, 0, 0, 589831, 0, 0, 589833, 0, 0, 589835, 0, 0, 589837, 0, 0, 589824, 131072, 0, 589826, 131072, 0, 589828, 131072, 0, 589830, 131072, 0, 589832, 131072, 0, 589834, 131072, 0, 589836, 131072, 0, 589838, 131072, 0, 65551, 65536, 0, 196623, 65536, 0, 327695, 65536, 0, 458767, 65536, 0, 589839, 65536, 0, 524304, 65536, 0, 393232, 65536, 0, 262160, 65536, 0, 131088, 65536, 0, 16, 65536, 0, 65553, 65536, 0, 196625, 65536, 0, 327697, 65536, 0, 458769, 65536, 0, 589841, 65536, 0, 15, 131072, 0, 65552, 131072, 0, 17, 131072, 0, 131089, 131072, 0, 131087, 131072, 0, 262159, 131072, 0, 196624, 131072, 0, 262161, 131072, 0, 327696, 131072, 0, 393231, 131072, 0, 393233, 131072, 0, 458768, 131072, 0, 524303, 131072, 0, 589840, 131072, 0, 524305, 131072, 0, 655360, 0, 0, 655362, 0, 0, 655364, 0, 0, 655366, 0, 0, 655368, 0, 0, 655370, 0, 0, 655372, 0, 0, 655374, 0, 0, 655376, 0, 0, 655361, 131072, 0, 655363, 131072, 0, 655365, 131072, 0, 655367, 131072, 0, 655369, 131072, 0, 655371, 131072, 0, 655373, 131072, 0, 655375, 131072, 0, 655377, 131072, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1304.0
+offset_bottom = 800.0
+theme = ExtResource("2_1drpe")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 1304.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 64
+text = "Necrodancer Wordle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Daily" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 192.0
+offset_right = 944.0
+offset_bottom = 264.0
+texture_normal = ExtResource("7_iep3d")
+texture_pressed = ExtResource("4_c4mx2")
+texture_hover = ExtResource("5_cjfx0")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/Daily"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Daily Challange"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Practice" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 320.0
+offset_right = 944.0
+offset_bottom = 392.0
+texture_normal = ExtResource("6_emni6")
+texture_pressed = ExtResource("7_3b7kc")
+texture_hover = ExtResource("8_ybve6")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/Practice"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Practice mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="HowTo" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 632.0
+offset_right = 944.0
+offset_bottom = 704.0
+texture_normal = ExtResource("9_55nbx")
+texture_pressed = ExtResource("10_lkigu")
+texture_hover = ExtResource("11_oe1qy")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/HowTo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "how to"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Control/Daily" to="." method="_on_daily_pressed"]
+[connection signal="pressed" from="Control/Practice" to="." method="_on_practice_pressed"]
+[connection signal="pressed" from="Control/HowTo" to="." method="_on_how_to_pressed"]

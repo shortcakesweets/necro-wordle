@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://co1pebg5qplyw"]
+
+[ext_resource type="Script" path="res://main_game/components/end_popup.gd" id="1_1my4m"]
+[ext_resource type="Theme" uid="uid://cqc18d25q7vg3" path="res://main_game/game_theme.tres" id="2_1y2yb"]
+[ext_resource type="PackedScene" uid="uid://dona1ikgp3j8m" path="res://main_game/components/enemy_displayer.tscn" id="3_vhvci"]
+[ext_resource type="Texture2D" uid="uid://3en80ybg5m0s" path="res://assets/ui/green_button04.png" id="4_dk4lq"]
+[ext_resource type="Texture2D" uid="uid://djy8gymy23nfe" path="res://assets/ui/green_button05.png" id="5_elpul"]
+[ext_resource type="Texture2D" uid="uid://bkbfpfb1u5kno" path="res://assets/ui/green_button02.png" id="6_3ee8b"]
+
+[node name="EndPopup" type="Node2D"]
+script = ExtResource("1_1my4m")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 448.0
+offset_bottom = 576.0
+theme = ExtResource("2_1y2yb")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.67451, 0.67451, 1, 1)
+
+[node name="Title" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 448.0
+offset_bottom = 128.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[wave][center]You Win![/center][/wave]"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_top = 112.0
+offset_right = 448.0
+offset_bottom = 304.0
+theme_override_constants/line_separation = 16
+bbcode_enabled = true
+text = "[center]the answer was
+[color=blue]wa sans[/color]"
+
+[node name="EnemyDisplayer" parent="Control" instance=ExtResource("3_vhvci")]
+position = Vector2(224, 280)
+guessed = true
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 424.0
+offset_right = 384.0
+offset_bottom = 488.0
+texture_normal = ExtResource("4_dk4lq")
+texture_pressed = ExtResource("5_elpul")
+texture_hover = ExtResource("6_3ee8b")
+stretch_mode = 0
+flip_h = true

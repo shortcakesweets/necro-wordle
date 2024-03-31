@@ -1,0 +1,9 @@
+res://main_game/components/enemy_displayer.tscn
+res://assets/enemy_animations.tres
+res://fonts/font_cell.tres
+res://main_game/game_theme.tres
+res://lobby.gdshader
+res://main_game/components/end_popup.gd
+res://main_game/components/end_popup.tscn
+res://main_game/main_game.tscn
+res://lobby.tscn
