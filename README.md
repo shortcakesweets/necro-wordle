@@ -12,7 +12,7 @@
 
 ## How to play
 
-  The best way is to play it on [here](https://shortcakesweets.github.io/necro-wordle/).
+  The best way is to play it on [here](https://shortcakesweets.itch.io/necrowordle).
 
   If you want to use the code or debug then download this repository, and open the project with Godot Engine.
 
